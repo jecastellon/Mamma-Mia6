@@ -25,6 +25,7 @@ export default function Home() {
         {Pizza.map((p) => (
           <CardPizza
           key= {p.id}
+          id={p.id}
           desc= {p.desc}
           name={p.name}
           price={p.price}

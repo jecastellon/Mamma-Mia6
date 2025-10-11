@@ -1,12 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button'
-import { formatNumber } from '../utils/format'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useCart } from './CartContext'
+import { formatNumber } from '../assets/pages/Cart'
 
 export default function Navbar() {
-        const total = 25000
-        const [token, setToken] = useState(false)
+  const { total } = useCart();
+  const [token, setToken] = useState(false)
     return (
         <>
         <div className='menu'>

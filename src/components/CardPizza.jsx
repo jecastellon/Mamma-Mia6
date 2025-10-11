@@ -2,8 +2,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { formatNumber } from '../utils/format'
+import { useCart } from './CartContext'
 
 export default function CardPizza(props) {
+
+  const { addToCart } = useCart()
+
   return (
     <>
     <Card style={{ width: '18rem' }}>
@@ -22,7 +26,15 @@ export default function CardPizza(props) {
         </Card.Text>
         <div className="card-buttons">
         <Button variant="light">Ver más👀</Button>
-        <Button variant="dark">Añadir🛒</Button>
+        <Button
+            variant="dark"
+            onClick={() => addToCart({
+              id: props.id,
+              name: props.name,
+              price: props.price,
+              img: props.img,
+            })}>
+          Añadir🛒</Button>
         </div>
       </Card.Body>
     </Card>
